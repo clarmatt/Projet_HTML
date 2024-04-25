@@ -8,9 +8,17 @@
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-    <div class="tiledBackground"></div>
+    <div id="numbers"></div>
     <header>
-        <img src="./images/logo/prograpassion.png" alt="Logo de Progra Passion">
+       <img  src="./images/mario-removebg-preview.png" class="mario" onmouseover="playSound()" onmouseout="stopSound()" >
+       <audio id="hover-sound">
+        <source src="./son/yahoo-sound-effect-mario-y2bscom_fEG2mny4.mp3" type="audio/mpeg">
+        </audio>
+        <a href="http://algomius.fr/"><img  src="./images/logo/prograpassion.png" alt="Logo de Progra Passion"></a>
+        <img  src="./images/199-1996931_luigi-clipart-pixel-mario-super-mario-bros-removebg-preview.png" class="luigi"  onmouseover="playSound2()" onmouseout="stopSound2()" >
+        <audio id="hover-sound2">
+            <source src="./son/Luigis Mansion (GCN) - Mario Yoo-hoo FX Sound Effect (HD).mp3" type="audio/mpeg">
+            </audio>
         <nav>
             <ul>
                 <li><a href="#langages">Les meilleurs langages</a></li>
@@ -22,18 +30,21 @@
     </header>
     <div>
         <h1>Quel langage apprendre en 2024 ?</h1>
-        <p>Débutant ou expert, tout le monde y trouve son compte</p>
+        <h3>Débutant ou expert, tout le monde y trouve son compte</h3>
        
-        <p>Plus de 3500 développeurs nous ont déjà rejoints</p>
+        <h3>Plus de 3500 développeurs nous ont déjà rejoints</h3>
     </div>
-
-    <div  id="langages">
-        <div>
-            <h2>Les meilleurs langages</h2>
+     <div class="bar"> <h2>Les meilleurs langages</h2></div>
+        <div  id="langages">
             <div class="language">
                 <img src="./images/langages/html.jpg" alt="html">
                 <p>Le HTML</p>
                 <p>Le cœur du web</p>
+            </div>
+            <div class="language">
+                <img src="./images/langages/java.jpg" alt="html">
+                <p>Le JAVASCRIPT </p>
+                <p></p>
             </div>
             <div class="language">
                 <img src="./images/langages/css.jpg" alt="css">
@@ -42,15 +53,20 @@
             </div>
         </div>
     </div>
-    <div class="separator"></div>
+    <div class="bar">  <h2>Articles populaires</h2></div>
     <div id="articles">
-        <div>
-            <h2>Articles populaires</h2>
             <div class="article">
                 <img src="./images/articles/mac.jpg" alt="mac">
                 <div>
                     <p>Mac ou PC ?</p>
                     <p>La guerre est déclarée</p>
+                </div>
+            </div>
+            <div class="article">
+                <img src="./images/articles/win.png" alt="mac">
+                <div>
+                    <p>Windows ou Linux ? </p>
+                    <p>La grand débat</p>
                 </div>
             </div>
             <div class="article">
@@ -63,8 +79,9 @@
             <!-- Ajoutez d'autres articles ici -->
         </div>
     </div>
+    <div class="bar">     <h2>Les événements à venir</h2></div>
     <div class="separator"></div>
-    <h2>Les événements à venir</h2>
+
     <div  id="evenements">
         
         <div class="event">
@@ -118,7 +135,47 @@
             </ul>
         </div>
     </footer>
-  
+  <script>
+// Fonction pour générer un chiffre aléatoire
+function getRandomNumber() {
+  return Math.floor(Math.random() * 10);
+}
+
+// Fonction pour générer un chiffre aléatoire avec une animation
+function createFloatingNumber() {
+  const number = document.createElement("span");
+  number.innerText = getRandomNumber();
+  number.style.position = "absolute";
+  number.style.top = Math.random() * 100 + "%";
+  number.style.left = Math.random() * 100 + "%";
+  number.style.opacity = Math.random() * 0.5 + 0.5; // Opacité aléatoire entre 0.5 et 1
+  number.style.animation = "float " + (Math.random() * 5 + 2) + "s linear infinite"; // Durée d'animation aléatoire entre 2 et 7 secondes
+  document.getElementById("numbers").appendChild(number);
+}
+
+// Génère et anime les chiffres périodiquement
+setInterval(createFloatingNumber, 100);
+function playSound() {
+  var audio = document.getElementById("hover-sound");
+  audio.play();
+}
+
+function stopSound() {
+  var audio = document.getElementById("hover-sound");
+  audio.pause();
+  audio.currentTime = 0;
+}
+function playSound2() {
+  var audio = document.getElementById("hover-sound2");
+  audio.play();
+}
+
+function stopSound2() {
+  var audio = document.getElementById("hover-sound2");
+  audio.pause();
+  audio.currentTime = 0;
+}
+  </script>
   
 </body>
 </html>
